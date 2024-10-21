@@ -4,20 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="/assets/styles.css">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>{{ site.title }}</h1>
         <p>{{ site.description }}</p>
     </header>
+    
+    <nav>
+        <a href="{{ '/' | relative_url }}">الرئيسية</a>
+        <a href="{{ '/asd.html' | relative_url }}">ملفات ASD</a>
+        <a href="{{ '/ado.html' | relative_url }}">ملفات ADO</a>
+        <!-- أضف روابط صفحات أخرى هنا -->
+    </nav>
 
     <main>
         {{ content }}
     </main>
 
     <footer>
-        <p>© 2024 - {{ site.title }}</p>
+        <p>جميع الحقوق محفوظة © {{ site.title }} {{ site.time | date: '%Y' }}</p>
     </footer>
 </body>
 </html>
